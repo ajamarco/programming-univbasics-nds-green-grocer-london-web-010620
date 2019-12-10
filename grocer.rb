@@ -59,7 +59,7 @@ def apply_coupons(cart, coupons)
       end
     end
   end
-  #cart.delete_if{|item| item[:count] == 0}
+  #cart.delete_if{|item| item[:count] == 0} #delete 0-count items after applied coupon and original item was 0
   cart
 end
 
