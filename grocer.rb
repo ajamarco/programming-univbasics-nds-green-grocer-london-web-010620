@@ -93,6 +93,7 @@ def checkout(cart, coupons)
   checkout_price = 0 
   
   final_cart.length.times do |index|
-    checkout_price += 
+    checkout_price += final_cart[index][:price] * final_cart[index][:count]
   end 
+  checkout_price
 end
