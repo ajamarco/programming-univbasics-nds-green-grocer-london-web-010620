@@ -95,5 +95,8 @@ def checkout(cart, coupons)
   final_cart.length.times do |index|
     checkout_price += final_cart[index][:price] * final_cart[index][:count]
   end 
+  if checkout_price >= 100
+    checkout_price *= 0.9
+  end 
   checkout_price
 end
