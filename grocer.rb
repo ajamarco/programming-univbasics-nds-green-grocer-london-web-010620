@@ -67,9 +67,10 @@ def apply_clearance(cart)
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
+  discount = 0.8
   cart.length.times do |index|
     if cart[index][:clearance]
-      
+      cart[index][:price] = cart[index][:price] / discount 
     end 
   end 
 end
