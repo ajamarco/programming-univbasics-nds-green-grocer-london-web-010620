@@ -30,7 +30,8 @@ end
 
 our_cart = [
   {:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 4},
-  {:item => "KALE",    :price => 3.00, :clearance => false, :count => 8}
+  {:item => "KALE",    :price => 3.00, :clearance => false, :count => 8},
+  {:item => "Milk",    :price => 2.00, :clearance => false, :count => 2}
 ]
 
 coupon = [{:item => "AVOCADO", :num => 2, :cost => 5.00},
