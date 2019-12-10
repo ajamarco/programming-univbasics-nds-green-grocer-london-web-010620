@@ -36,9 +36,31 @@ def consolidate_cart(cart)
 end
 
 def apply_coupons(cart, coupons)
-  # Consult README for inputs and outputs
-  #
-  # REMEMBER: This method **should** update cart
+  cart.length.times do |cart_index| #iterate over cart 
+    #check if current item is in the coupon collection calling the method  find_item_by_name_in_collection
+    item_in_coupon = find_item_by_name_in_collection(cart[cart_index][:item], coupons)
+    if item_in_coupon #if the item is in the coupon collection 
+    
+      #check in which index the item is in the coupom collection 
+      item_index_in_coupon = return_index(cart[cart_index][:item], coupons)
+      
+      #check if the quantity in coupon is met 
+      if coupons[item_index_in_coupon][:num] <= cart[cart_index][:count]
+        #se a qtde comprada for maior, vamos aplicar o desconto
+        #pegamos o valor do desconto e dividimos pela quantidade para 
+        #termos um valor individual
+        unit_value = coupons[item_index_in_coupon][:cost] / coupons[item_index_in_coupon][:num]
+        new_item = cart[cart_index].clone
+        new_item[:price] = unit_value
+        new_item[:count] = cart[cart_index][:count] - cart[cart_index][:count]%coupons[item_index_in_coupon][:num] 
+        cart[cart_index][:count] = cart[cart_index][:count]%coupons[item_index_in_coupon][:num]
+        new_item[:item] += " W/COUPON"
+        cart.push(new_item)
+      end
+    end
+  end
+  cart.delete_if{|item| item[:count] == 0}
+  cart
 end
 
 def apply_clearance(cart)
