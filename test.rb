@@ -59,8 +59,6 @@ def apply_coupons(cart, coupons)
         new_item[:item] += " W/COUPON"
         cart.push(new_item)
       end
-    else
-      puts "item not in coupom"
     end
   end
 
