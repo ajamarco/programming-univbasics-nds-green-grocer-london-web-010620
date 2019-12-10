@@ -70,7 +70,7 @@ def apply_clearance(cart)
   discount = 0.8
   cart.length.times do |index|
     if cart[index][:clearance]
-      cart[index][:price] = (cart[index][:price] / discount).round(2)
+      cart[index][:price] = (cart[index][:price] * discount).round(2)
     end 
   end
   cart
