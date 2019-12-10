@@ -65,7 +65,7 @@ def apply_coupons(cart, coupons)
   puts "imprimindo carrinho"
   puts cart
   puts "excluindo 0 quantidades"
-  cart.delete_if{|item| item[:count] == 0}
+  #cart.delete_if{|item| item[:count] == 0}
   puts cart
 end
 
